@@ -1,7 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App.jsx'
+import App from './App.js'
 
-ReactDOM.render(<App/>,document.body)
+const dev = process.env.NODE_ENV === 'development'
+
+if (dev) {
+    ReactDOM.render(<App/>, document.getElementById('app'))
+} else {
+    ReactDOM.hydrate(<App/>, document.getElementById('app'))
+}
+
 
 
