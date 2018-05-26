@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from "./components/header"
-import { hot } from 'react-hot-loader'
-import './app.scss'
-import 'font-awesome/css/font-awesome.min.css'
+import {hot} from 'react-hot-loader'
+import {Route, Switch} from 'react-router-dom'
+import Home from "./page/home"
+import Layout from "./component/layout"
 
 const dev = process.env.NODE_ENV === 'development'
 
@@ -10,15 +10,15 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <i className={'fa fa-camera-retro'}/>
-                <i className={'fa fa-home fa-fw'}/>
-                {/*<Header/>*/}
-                <h1>app,hello,</h1>12zsdkassdworld 123 taso me 12xxx,askk  qcwjcnj
-            </div>
+            <Layout>
+                <Switch>
+                    <Route path={'/'} component={Home}/>
+                </Switch>
+            </Layout>
         )
     }
 }
 
-const Root = dev?hot(module)(App):App
+const Root = dev ? hot(module)(App) : App
+
 export default Root

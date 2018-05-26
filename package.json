@@ -8,7 +8,8 @@
     "build:pro": "cross-env NODE_ENV=production webpack --config config/webpack.production.config.js",
     "build:server": "cross-env NODE_ENV=production webpack --config config/webpack.server.config.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.client.config.js",
-    "build": "yarn clear && yarn build:server && yarn build:pro",
+    "build": "yarn clear && yarn build:pro",
+    "server":"nodemon server/index.js",
     "clear": "rimraf build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,8 +18,10 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -39,9 +42,9 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "font-awesome": "^4.7.0",
     "nodemon": "^1.17.5",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2"
   }
 }
