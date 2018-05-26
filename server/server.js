@@ -18,9 +18,12 @@ app.get('*',(req,res)=>{
             <App/>
         </StaticRouter>
     )
-    // const appStr = ReactDOMServer.renderToString(serverEntry)
     const file = template.replace('<!--app-->',html);
-    res.send(file)
+    if(context.url){
+        res.redirect(302,context.url)
+    } else {
+        res.send(file)
+    }
 })
 
 app.listen(2333,()=>{
